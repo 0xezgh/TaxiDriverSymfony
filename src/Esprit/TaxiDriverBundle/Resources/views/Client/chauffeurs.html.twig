@@ -1,0 +1,79 @@
+{% extends "EspritTaxiDriverBundle::layout.html.twig" %}
+
+
+
+
+{% block navbar %}
+<div class="top-nav">
+						<ul>
+							<li><a href="{{path("esprit_taxidriver_client_homepage")}}">Accueil</a></li>
+							<li><a href="{{path("esprit_taxidriver_a_propos")}}">A propos</a></li>
+                                                        <li><a href="{{path("fos_user_profile_show")}}">Profile</a></li>
+							<li><a href="{{path("esprit_taxidriver_affi_agence")}}">Nos agences</a></li>
+							<li><a href="{{path("esprit_taxidriver_affi_offre")}}">Offres</a></li>
+                                                        <li><a href="{{path("esprit_taxidriver_client_reservation_taxi")}}">Reservations</a></li>
+                                                        <li class="active"><a href="{{path("esprit_taxidriver_affi_chauffeur")}}">Chauffeurs</a></li>
+                                                        <li><a href="{{path("esprit_taxidriver_affi_vehicule")}}">Vehicules</a></li>
+							<li><a href="{{path("esprit_taxidriver_contact")}}">Contact</a></li>
+							<div class="clear"> </div>
+						</ul>
+                                            
+					</div>
+{% endblock %}
+
+
+{% block content %}
+</br></br></br>
+
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap2.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.bootstrap.css') }}">
+    <script type="text/javascript" language="javascript" src="{{ asset('js/jquery-1.10.2.min.js') }}"></script>
+    <script type="text/javascript" language="javascript" src="{{ asset('js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" language="javascript" src="{{ asset('js/dataTables.bootstrap.js')}}"></script>
+    <script type="text/javascript" language="javascript" src="{{ asset('js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+        $(document).ready(function() {
+            $('#example').dataTable();
+        } );
+    </script>
+    <style type="text/css">
+        .bs-example{
+            margin: 20px;
+        }
+    </style>
+
+
+<div class="wrap">   
+    <div class="gallery-grids">
+    
+   
+    {% for c in chauffeurs %}
+            
+		<div class="gallery-grid">
+	        <a href={{asset("images/slider1.jpg")}}><img src={{asset("images/slider1.jpg")}} alt=""></a>
+                <h4>{{c.prenom}}{{"        "}}{{c.nom}}</h4>
+                <p>E-Mail:{{c.email}}</br>n° tel : {{c.telephone}}</br>Adresse : {{c.adresse}}</br><div class="gallery-button"><a href="#">Plus de détails</a></div><p>
+		</div>
+                            
+    {% endfor %}    
+        
+    <div class="clear"> </div>
+    
+    <div class="clear"> </div>
+    
+    <div class="gallery-grid">
+	<div class="gallery-button"><a href="#"></a></div><p>
+		</div>
+    
+                <div class="gallery-grid">
+                <div class="gallery-button"><a href="{{path("esprit_taxidriver_client_bestchauffeurs")}}">Chauffeurs les mieux notés</a></div><p>
+           
+		</div>
+    
+    <div class="clear"> </div>
+    <div class="clear"> </div>
+</div>
+</div>    	 	
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "EspritTaxiDriverBundle::layout2.html.twig" %}
+
+     {% block navbar %}
+<div class="top-nav">
+						<ul>
+                                                    <li><a href="{{path("esprit_taxidriver_resp_agence_homepage")}}">Accueil</a></li>
+							<li class="active"><a href="{{path("fos_user_profile_show")}}">Profile</a></li>
+                                                        <li><a href="{{path("esprit_taxidriver_affi_agence")}}">Nos agences</a></li>
+							<li><a href="{{path("esprit_taxidriver_resp_agence_listOffre")}}">Offres</a></li>
+                                                        <li><a href="{{path("esprit_taxidriver_resp_agence_listRNCreclamation")}}"> Reclamations  </a></li>
+                                                        <li><a href="{{path("esprit_taxidriver_resp_agence_listChauffeur")}}">Chauffeurs</a></li>
+                                                        <li><a href="{{path("esprit_taxidriver_resp_agence_listVoiture")}}">Vehicules</a></li>
+                                                        <li><a href="{{path("esprit_taxidriver_resp_agence_listTrajet")}}"> Trajet </a></li>
+							<li><a href="{{path("esprit_taxidriver_contact")}}">Contact</a></li>
+							<div class="clear"> </div>
+						</ul>
+					</div>
+{% endblock %}
+    
+
+
+       
+        {% block content %}
+
+
+
+            <br>
+            <br>
+            <center>
+  
+  
+  
+   
+  <h1> Mise à jour d'une Offre </h1>
+<form class="form-horizontal" method="post" {{ form_enctype(Form) }}>
+<table>
+    
+    
+    
+    <tr><div class="form-group" style="
+    width: 500px;">
+        <td>Nom sujet  </td>
+        <td><div  class="col-sm-10">
+            {{form_widget(Form.sujetoffre)}}
+                    </div>
+
+        </td>
+  </div>
+    </tr>
+    
+    
+    <tr>
+        <td>
+            {{ form_label(Form.contenu)}}
+        </td>
+        <td>
+           {{ form_widget(Form.contenu)}}
+           {{ form_errors(Form.contenu)}}
+        </td>
+    </tr>
+   
+    
+     <tr>
+        <td>
+            {{ form_label(Form.date)}}
+        </td>
+        <td>
+           {{ form_widget(Form.date)}}
+           {{ form_errors(Form.date)}}
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td>
+        {{form_label(Form.idAgence)}}
+        </td>
+        <td>
+            {{form_widget(Form.idAgence)}}
+            {{form_errors(Form.idAgence)}}
+        </td>
+    </tr>
+    
+    
+        
+    <tr>
+        <td>
+           <button type="submit" class="btn btn-primary"> Valider </button>
+        </td>
+        <td>
+            <input type="reset" class="btn btn-Danger"> </button>
+        </td>
+    </tr>
+
+
+   
+</table>
+   {{form_rest(Form)}}     
+</form>
+<br>
+<br>
+
+{% endblock %}

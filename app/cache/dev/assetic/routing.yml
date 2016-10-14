@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: 'C:/wamp/www/3a15-allotaxi-devstars-symfony/app/config/routing_dev.yml'
